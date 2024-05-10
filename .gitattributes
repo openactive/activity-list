@@ -1,0 +1,6 @@
+# exclude .gitattributes (this file) and similar from the release zip file
+.git*          export-ignore
+# exclude README.md from the release zip file
+README.md      export-ignore
+# exclude version.txt from the release zip file
+version.txt    export-ignore
