@@ -1,0 +1,17 @@
+name: Create and merge PR for latest Vocabulary and Collections
+
+on:
+  workflow_dispatch:
+    inputs:
+      publisher:
+        description: 'Author of this release'     
+        required: true
+        type: string
+
+jobs:
+  create-and-merge-pr:
+    uses: openactive/skos-vocabulary-workflows/.github/workflows/create-and-merge-pr.yaml@main
+    with:
+      publisher: ${{ github.event.inputs.publisher }}
+    secrets:
+      PUBLIC_REPO_ACCESS_TOKEN: ${{ secrets.PUBLIC_REPO_ACCESS_TOKEN }}
