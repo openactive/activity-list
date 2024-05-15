@@ -5,7 +5,11 @@ on:
     inputs:
       publisher:
         description: 'Author of this release'     
-        required: true
+        required: false
+        type: string
+      timestamp:
+        description: 'Date of this release'     
+        required: false
         type: string
 
 jobs:
@@ -13,5 +17,6 @@ jobs:
     uses: openactive/skos-vocabulary-workflows/.github/workflows/create-and-merge-pr.yaml@main
     with:
       publisher: ${{ github.event.inputs.publisher }}
+      timestamp: ${{ github.event.inputs.timestamp }}
     secrets:
       PUBLIC_REPO_ACCESS_TOKEN: ${{ secrets.PUBLIC_REPO_ACCESS_TOKEN }}
